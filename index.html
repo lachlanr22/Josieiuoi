@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>For Josie 💗</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Josie 💗</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="background"></div>
+<!-- Floating hearts background -->
+<div class="hearts-background"></div>
 
+<!-- Main card -->
 <div class="card">
-
     <h1>Josie 💗</h1>
     <h2>Will you be my Valentine?</h2>
 
-    <!-- First Toggle -->
-    <input type="checkbox" id="open">
-    <label for="open" class="main-button">click here honey iu 💘</label>
+    <!-- Main button -->
+    <button id="openButton" class="main-button">click here honey iu 💘</button>
 
-    <!-- Yes / No Section -->
-    <div class="choice-section">
-
-        <p class="love-text">
-            love you honey, pls say yes 💕
-        </p>
-
-        <input type="radio" name="answer" id="yes">
-        <input type="radio" name="answer" id="no">
-
+    <!-- YES/NO buttons -->
+    <div id="choiceSection" class="choice-section hidden">
+        <p class="love-text">love you honey, pls say yes 💕</p>
         <div class="buttons">
-            <label for="yes" class="yes-button">YES 💖</label>
-            <label for="no" class="no-button">NO 💔</label>
+            <button id="yesButton" class="yes-button">YES 💖</button>
+            <button id="noButton" class="no-button">NO 💔</button>
         </div>
-
-        <div class="result yes-result">
-            🎉 🎊 💖 🎆 💕 🎉 🎊 💖 🎆 💕
-            <p>love lachlan oi 💗</p>
-        </div>
-
-        <div class="result no-result">
-            😭 💔 😭 💔 😭 💔 😭
-            <p>oh nooo my heart 😢</p>
-        </div>
-
     </div>
 
+    <!-- Result messages -->
+    <div id="yesResult" class="result yes-result hidden">
+        🎉 🎊 💖 🎆 💕 🎉 🎊 💖 🎆 💕
+        <p>love lachlan oi 💗</p>
+    </div>
+
+    <div id="noResult" class="result no-result hidden">
+        😭 💔 😭 💔 😭 💔 😭
+        <p>oh nooo my heart 😢</p>
+    </div>
 </div>
 
+<!-- Confetti container -->
+<div id="confettiContainer"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
+
