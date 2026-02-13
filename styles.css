@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd6e8, #ffeaf4, #ffc2d1);
+    overflow: hidden;
+    transition: 0.6s ease;
+}
+
+/* Card */
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 60px 50px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+}
+
+h1 {
+    font-size: 48px;
+    color: #ff4f81;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Hide inputs */
+input {
+    display: none;
+}
+
+/* Main button */
+.main-button {
+    display: inline-block;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff6f91, #ff9671);
+    color: white;
+    box-shadow: 0 15px 30px rgba(255,111,145,0.4);
+    transition: 0.3s ease;
+}
+
+.main-button:hover {
+    transform: scale(1.08);
+}
+
+/* Hidden section initially */
+.choice-section {
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+/* Show section when open checked */
+#open:checked ~ .choice-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.love-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Yes/No buttons */
+.buttons label {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.yes-button {
+    background: #ff4f81;
+    color: white;
+}
+
+.no-button {
+    background: #999;
+    color: white;
+}
+
+.buttons label:hover {
+    transform: scale(1.1);
+}
+
+/* Results */
+.result {
+    margin-top: 25px;
+    font-size: 20px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.6s ease;
+}
+
+/* YES result */
+#yes:checked ~ .result.yes-result {
+    opacity: 1;
+    transform: scale(1.1);
+    animation: celebrate 1s infinite alternate;
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.15); }
+}
+
+/* Change background when yes */
+#yes:checked ~ .result.yes-result ~ body {
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+}
+
+/* NO result */
+#no:checked ~ .result.no-result {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Sad background when no */
+#no:checked ~ .result.no-result {
+    color: #333;
+}
+
+#no:checked ~ .result.no-result::before {
+    content: "";
+}
+
+/* Change body background using general selector trick */
+#no:checked ~ .result.no-result {
+    animation: none;
+}
+
+#no:checked ~ .result.no-result {
+    background: none;
+}
+
+body:has(#no:checked) {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+}
